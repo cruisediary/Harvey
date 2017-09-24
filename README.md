@@ -1,5 +1,5 @@
 # Harvey 
-Harvey is a stubbing library written completely in Swift. Main goals:
+Harvey is a network response stubbing library written completely in Swift. Main goals:
 - [ ] Stubbing based on given request properties (url/method etc.)
 - [ ] Removing stubs
 - [ ] Compatible with SPM
