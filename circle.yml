@@ -8,4 +8,4 @@ test:
   override:
   - swift build
   - swift test
-
+  - pod lib lint

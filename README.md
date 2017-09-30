@@ -9,7 +9,7 @@ Harvey is a network response stubbing library written completely in Swift. Main 
 - [ ] Compatible with Carthage
 - [ ] Record/save/use recorded stubs
 - [ ] Moya plugin to easily handle Harvey
-- [ ] Compatibility with CocoaPods
+- [x] Compatibility with CocoaPods
 
 # Contributions
 Contributions are welcome, but keep in mind that for now the main goal is a 
