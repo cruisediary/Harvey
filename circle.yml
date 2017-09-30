@@ -7,4 +7,5 @@ machine:
 test:
   override:
   - swift build
+  - swift test
 
