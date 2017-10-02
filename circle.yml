@@ -4,7 +4,13 @@ machine:
   environment:
     LANG: en_US.UTF-8
 
+dependencies:
+  override:
+  - brew install swiftlint
+
 test:
+  pre:
+  - swiftlint
   override:
   - swift build
   - swift test
