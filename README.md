@@ -11,6 +11,8 @@ Harvey is a network response stubbing library written completely in Swift. Main 
 - [ ] Moya plugin to easily handle Harvey
 - [x] Compatibility with CocoaPods
 
+You can check out more about the project direction in the [vision document](Vision.md).
+
 # Contributions
 Contributions are welcome, but keep in mind that for now the main goal is a 
 stable and working version, so development might progress _fast_.
