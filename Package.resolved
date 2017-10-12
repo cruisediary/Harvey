@@ -12,11 +12,11 @@
       },
       {
         "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "repositoryURL": "https://github.com/sunshinejr/Quick.git",
         "state": {
-          "branch": null,
-          "revision": "0ff81f2c665b4381f526bd656f8708dd52a9ea2f",
-          "version": "1.2.0"
+          "branch": "fix/spm_swift4",
+          "revision": "9fe84c8b1aa338e76398e398b00d5c54e44e8588",
+          "version": null
         }
       }
     ]
