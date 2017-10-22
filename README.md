@@ -20,6 +20,6 @@ stable and working version, so development might progress _fast_.
 This project is open source under the MIT license, which means you have 
 full access to the source code and can modify it to fit your own needs.
 
-This project also subscribes to the [Moya Contributors Guidelines](https://github.com/Moya/contributors) which TLDR: means we give out push access easily and often. That's actually the whole point of this repo.
+This project also subscribes to the [Moya Contributors Guidelines](https://github.com/Moya/contributors) which TLDR: means we give out push access easily and often.
 
 And also this project subscribes to the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/4/), based on the [Contributor Covenant](http://contributor-covenant.org) version 1.4.0. The maintainers take the code of conduct seriously. 
