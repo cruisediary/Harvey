@@ -1,5 +1,7 @@
 import Foundation
 
+@testable import Harvey
+
 final class HarveyTestsDataSource: HarveyDataSourceProtocol {
 
     let shouldStubClosure: (URLRequest) -> Bool

@@ -2,6 +2,8 @@ import Foundation
 import Quick
 import Nimble
 
+@testable import Harvey
+
 final class HarveyStubConfiguration: QuickConfiguration {
     override static func configure(_ configuration: Configuration) {
         sharedExamples("successfully stubbed response") { (context: SharedExampleContext) in
