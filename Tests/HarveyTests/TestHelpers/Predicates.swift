@@ -5,18 +5,6 @@ public func ==(lhs: [AnyHashable: Any], rhs: [AnyHashable: Any]) -> Bool {
     return NSDictionary(dictionary: lhs).isEqual(to: rhs)
 }
 
-public func ==(lhs: [AnyHashable: Any]?, rhs: [AnyHashable: Any]) -> Bool {
-    guard let lhs = lhs else { return false }
-
-    return lhs == rhs
-}
-
-public func ==(lhs: [AnyHashable: Any], rhs: [AnyHashable: Any]?) -> Bool {
-    guard let rhs = rhs else { return false }
-
-    return lhs == rhs
-}
-
 public func ==(lhs: [AnyHashable: Any]?, rhs: [AnyHashable: Any]?) -> Bool {
     switch (lhs, rhs) {
     case (.none, .none): return true
