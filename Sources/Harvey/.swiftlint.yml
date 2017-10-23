@@ -1,7 +1,6 @@
 disabled_rules:
   - line_length
   - type_name
-  - valid_docs
   - empty_count
 
 opt_in_rules:

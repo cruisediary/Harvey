@@ -10,7 +10,8 @@ dependencies:
 
 test:
   pre:
-  - swiftlint
+  - cd Sources/Harvey; swiftlint; cd ../../;
+  - cd Tests/HarveyTests; swiftlint; cd ../../;
   override:
   - swift build
   - swift test
