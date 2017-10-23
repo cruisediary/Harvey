@@ -2,8 +2,6 @@ import Foundation
 import Quick
 import Nimble
 
-@testable import Harvey
-
 final class HarveyStubConfiguration: QuickConfiguration {
     override static func configure(_ configuration: Configuration) {
         sharedExamples("successfully stubbed response") { (context: SharedExampleContext) in
@@ -29,11 +27,11 @@ final class HarveyStubConfiguration: QuickConfiguration {
             afterEach {
                 Harvey.remove(dataSource: dataSource)
             }
-
+            
             it("should stub given response") {
                 var response: HTTPURLResponse?
                 var receivedData: Data?
-                let downloadTask = urlSession.dataTask(with: stubbedResponse.url) { (data, receivedResponse, _) in
+                let downloadTask = urlSession.dataTask(with: stubbedResponse.url) { (data, receivedResponse, error) in
                     response = receivedResponse as? HTTPURLResponse
                     receivedData = data
                 }
@@ -49,7 +47,7 @@ final class HarveyStubConfiguration: QuickConfiguration {
                 let nonStubbedResponse = HarveyResponse(url: URL(string: "https://google.com")!, data: "test data".data(using: .utf8)!, statusCode: 204, headers: nil)
                 var response: HTTPURLResponse?
                 var receivedData: Data?
-                let downloadTask = urlSession.dataTask(with: nonStubbedResponse.url) { (data, receivedResponse, _) in
+                let downloadTask = urlSession.dataTask(with: nonStubbedResponse.url) { (data, receivedResponse, error) in
                     response = receivedResponse as? HTTPURLResponse
                     receivedData = data
                 }
@@ -66,7 +64,7 @@ final class HarveyStubConfiguration: QuickConfiguration {
 
                 var response: HTTPURLResponse?
                 var receivedData: Data?
-                let downloadTask = urlSession.dataTask(with: stubbedResponse.url) { (data, receivedResponse, _) in
+                let downloadTask = urlSession.dataTask(with: stubbedResponse.url) { (data, receivedResponse, error) in
                     response = receivedResponse as? HTTPURLResponse
                     receivedData = data
                 }
@@ -84,7 +82,7 @@ final class HarveyTests: QuickSpec {
 
     override func spec() {
         Harvey.startStubbing()
-
+        
         describe("given one httpbin endpoint") {
             let url = URL(string: "https://httpbin.org/uuid")!
 
