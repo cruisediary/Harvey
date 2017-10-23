@@ -13,14 +13,6 @@ public final class Harvey {
         isStubbing = true
     }
 
-    public static func stopStubbing() {
-        guard isStubbing else { return }
-
-        URLProtocol.unregisterClass(HarveyURLProtocol.self)
-        URLSessionConfiguration.harveySwizzle()
-        isStubbing = false
-    }
-
     public static func add(dataSource: HarveyDataSourceProtocol) {
         guard !dataSources.contains(where: { $0 === dataSource }) else { return }
 
