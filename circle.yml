@@ -3,16 +3,18 @@ machine:
     version: 9.0
   environment:
     LANG: en_US.UTF-8
+    HOMEBREW_NO_AUTO_UPDATE: 1
 
 dependencies:
   override:
   - brew install swiftlint
+  - npm install -g danger@alpha
+  - brew install danger/tap/danger-swift
 
 test:
-  pre:
-  - cd Sources/Harvey; swiftlint; cd ../../;
-  - cd Tests/HarveyTests; swiftlint; cd ../../;
   override:
   - swift build
   - swift test
   - pod lib lint
+  - swiftlint lint --path Sources --reporter json > swiftlint-results.json
+  - danger process danger-swift

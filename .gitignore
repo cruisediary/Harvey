@@ -3,3 +3,4 @@
 /Packages
 /*.xcodeproj
 /.bundle
+swiftlint-results.json
