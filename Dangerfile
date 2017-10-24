@@ -23,5 +23,5 @@ if !(a^b) # an inverted xor, I had to look it up
 end
 
 # Run SwiftLint
-# swiftlint.lint_files # Uncomment sometime.
+swiftlint.lint_files
 

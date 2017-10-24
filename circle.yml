@@ -7,12 +7,11 @@ machine:
 dependencies:
   override:
   - brew install swiftlint
+  - bundle install
 
 test:
-  pre:
-  - cd Sources/Harvey; swiftlint; cd ../../;
-  - cd Tests/HarveyTests; swiftlint; cd ../../;
   override:
   - swift build
   - swift test
   - pod lib lint
+  - bundle exec danger
