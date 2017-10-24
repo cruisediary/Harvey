@@ -20,7 +20,7 @@ end
 podspec_updated = !git.modified_files.grep(/Harvey.podspec/).empty?
 package_updated = !git.modified_files.grep(/Package.swift/).empty?
 
-if !(a^b) # an inverted xor, I had to look it up
+if !(podspec_updated^package_updated) # an inverted xor, I had to look it up
   warn("Only one of either the podspec or SPM package was changed. This might be uninstentional – double check.")
 end
 
