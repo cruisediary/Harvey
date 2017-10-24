@@ -3,6 +3,7 @@ machine:
     version: 9.0
   environment:
     LANG: en_US.UTF-8
+    HOMEBREW_NO_AUTO_UPDATE: 1
 
 dependencies:
   override:
