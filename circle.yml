@@ -15,4 +15,5 @@ test:
   - swift build
   - swift test
   - pod lib lint
+  post:
   - bundle exec danger
