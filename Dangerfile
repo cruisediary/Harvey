@@ -1,5 +1,3 @@
-fail("intentionally failing to test")
-
 # Sometimes it's a README fix, or something like that - which isn't relevant for
 # including in a project's CHANGELOG for example
 not_declared_trivial = !(github.pr_title.include? "#trivial")
@@ -20,8 +18,8 @@ end
 podspec_updated = !git.modified_files.grep(/Harvey.podspec/).empty?
 package_updated = !git.modified_files.grep(/Package.swift/).empty?
 
-if !(podspec_updated^package_updated) # an inverted xor, I had to look it up
-  warn("Only one of either the podspec or SPM package was changed. This might be uninstentional – double check.")
+if podspec_updated^package_updated
+  warn("Only one of either the podspec or SPM package was changed. This might be unintentional – double check.")
 end
 
 # Run SwiftLint
