@@ -27,7 +27,7 @@ if danger.github.pullRequest.title.contains("WIP") {
 
 let onlyPodspec = allSourceFiles.contains("Harvey.podspec") && !allSourceFiles.contains("Package.swift")
 let onlyPackage = !allSourceFiles.contains("Harvey.podspec") && allSourceFiles.contains("Package.swift")
-if onlyPodspec || onlyPackage {
+if onlyPodspec != onlyPackage {
     warn("Only one of either the podspec or SPM package was changed. This might be unintentional – double check.")
 }
 

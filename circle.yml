@@ -16,6 +16,5 @@ test:
   - swift build
   - swift test
   - pod lib lint
-  post:
   - swiftlint lint --path Sources --reporter json > swiftlint-results.json
   - danger process danger-swift
