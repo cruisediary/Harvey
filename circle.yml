@@ -8,13 +8,12 @@ machine:
 dependencies:
   override:
   - brew install swiftlint
-  - npm install -g danger@alpha
+  - npm install -g danger
   - brew install danger/tap/danger-swift
 
 test:
   override:
-  - swift build
-  - swift test
-  - pod lib lint
-  - swiftlint lint --path Sources --reporter json > swiftlint-results.json
+  # - swift build
+  # - swift test
+  # - pod lib lint
   - danger process danger-swift
