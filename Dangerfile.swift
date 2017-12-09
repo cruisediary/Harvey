@@ -1,6 +1,6 @@
 import Foundation
 import Danger
-import DangerSwiftlint // package: https://github.com/ashfurrow/danger-swiftlint.git
+import DangerSwiftLint // package: https://github.com/ashfurrow/danger-swiftlint.git
 
 let danger = Danger()
 
