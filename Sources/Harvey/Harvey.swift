@@ -2,13 +2,11 @@ import Foundation
 
 public final class Harvey {
 
-      private static var isStubbing = false
+    private static var isStubbing = false
     private static var dataSources = [HarveyDataSourceProtocol]()
 
-    public static func startStubbing(){
+    public static func startStubbing() {
         guard !isStubbing else { return }
-
-	let a: Int!
 
         URLProtocol.registerClass(HarveyURLProtocol.self)
         URLSessionConfiguration.harveySwizzle()
