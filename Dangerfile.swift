@@ -10,7 +10,7 @@ let changelogChanged = allSourceFiles.contains("CHANGELOG.md")
 let sourceChanges = allSourceFiles.first(where: { $0.hasPrefix("Sources") })
 let isTrivial = danger.github.pullRequest.title.contains("#trivial")
 
-if (danger.git.createdFiles.count + danger.git.modifiedFiles.count - danger.git.deletedFiles.count > 10) {
+if danger.git.createdFiles.count + danger.git.modifiedFiles.count - danger.git.deletedFiles.count > 10 {
     warn("Big PR, try to keep changes smaller if you can")
 }
 
@@ -33,4 +33,3 @@ if onlyPodspec != onlyPackage {
 }
 
 SwiftLint.lint()
-
