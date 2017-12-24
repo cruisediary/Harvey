@@ -13,7 +13,7 @@ dependencies:
 
 test:
   override:
-  # - swift build
-  # - swift test
-  # - pod lib lint
+  - swift build
+  - swift test
+  - pod lib lint
   - danger process danger-swift
