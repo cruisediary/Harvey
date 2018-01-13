@@ -2,8 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/Moya/Harvey/tree/master.svg?style=svg)](https://circleci.com/gh/Moya/Harvey/tree/master)
 
-# Harvey 
-
 Harvey is a network response stubbing library written completely in Swift. Main goals:
 - [ ] Stubbing based on given request properties (url/method etc.)
 - [ ] Removing stubs
