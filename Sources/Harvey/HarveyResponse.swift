@@ -7,7 +7,9 @@ public final class HarveyResponse {
     public let statusCode: Int
     public let headers: [String: String]?
 
-    internal lazy var httpUrlResponse: HTTPURLResponse = HTTPURLResponse(url: self.url, statusCode: self.statusCode, httpVersion: nil, headerFields: self.headers)! //swiftlint:
+    // swiftlint:disable force_unwrapping
+    internal lazy var httpUrlResponse: HTTPURLResponse = HTTPURLResponse(url: self.url, statusCode: self.statusCode, httpVersion: nil, headerFields: self.headers)!
+    // swiftlint:enable force_unwrapping
 
     public init(url: URL, data: Data, statusCode: Int, headers: [String: String]?) {
         self.url = url
