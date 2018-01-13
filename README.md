@@ -1,3 +1,5 @@
+![Harvey logo](Design/logo.png)
+
 [![CircleCI](https://circleci.com/gh/Moya/Harvey/tree/master.svg?style=svg)](https://circleci.com/gh/Moya/Harvey/tree/master)
 
 # Harvey 
