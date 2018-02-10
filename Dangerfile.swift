@@ -32,4 +32,6 @@ if onlyPodspec != onlyPackage {
     warn("Only one of either the podspec or SPM package was changed. This might be unintentional – double check.")
 }
 
-SwiftLint.lint()
+// Workaround for https://github.com/ashfurrow/danger-swiftlint/issues/4
+SwiftLint.lint(directory: "Sources", configFile: ".swiftlint.yml")
+SwiftLint.lint(directory: "Tests", configFile: "Tests/HarveyTests/.swiftlint.yml")
