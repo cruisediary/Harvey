@@ -1,6 +1,6 @@
 import Foundation
 import Danger
-import DangerSwiftLint // package: https://github.com/sunshinejr/danger-swiftlint.git
+import DangerSwiftLint // package: https://github.com/ashfurrow/danger-swiftlint.git
 
 let danger = Danger()
 
@@ -32,6 +32,6 @@ if onlyPodspec != onlyPackage {
     warn("Only one of either the podspec or SPM package was changed. This might be unintentional – double check.")
 }
 
-// Workaround for https://github.com/ashfurrow/danger-swiftlint/issues/4
+// Workaround for SwiftLint bug https://github.com/ashfurrow/danger-swiftlint/issues/4
 SwiftLint.lint(directory: "Sources", configFile: ".swiftlint.yml")
 SwiftLint.lint(directory: "Tests", configFile: "Tests/HarveyTests/.swiftlint.yml")
