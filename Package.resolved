@@ -6,16 +6,16 @@
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
-          "revision": "38c9ab0846a3fbec308eb2aa9ef68b10a7434eb4",
-          "version": "7.0.2"
+          "revision": "22800b0954c89344bb8c87f8ab93378076716fb7",
+          "version": "7.0.3"
         }
       },
       {
         "package": "Quick",
-        "repositoryURL": "https://github.com/sunshinejr/Quick.git",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {
-          "branch": "fix/spm_swift4",
-          "revision": "d091cae5f395ff397b635e33cb8880951517df5d",
+          "branch": "master",
+          "revision": "2a84abaedb07e1fb102b10fd17b5e3c52325ba46",
           "version": null
         }
       }

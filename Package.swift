@@ -10,7 +10,7 @@ let package = Package(
             targets: ["Harvey"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/sunshinejr/Quick.git", .branch("fix/spm_swift4")),
+        .package(url: "https://github.com/Quick/Quick.git", .branch("master")),
         .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.0.2"))
     ],
     targets: [
