@@ -18,6 +18,6 @@ public final class HarveyResponse {
         self.statusCode = statusCode
         self.headers = headers
 
-        let _ = URL(string: "")!
+        let _ = URL(string: "https://google.com")!
     }
 }
