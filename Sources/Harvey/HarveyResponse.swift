@@ -8,6 +8,7 @@ public final class HarveyResponse {
     public let headers: [String: String]?
 
     // swiftlint:disable force_unwrapping
+ 
     internal lazy var httpUrlResponse: HTTPURLResponse = HTTPURLResponse(url: self.url, statusCode: self.statusCode, httpVersion: nil, headerFields: self.headers)!
     // swiftlint:enable force_unwrapping
 
@@ -16,5 +17,7 @@ public final class HarveyResponse {
         self.data = data
         self.statusCode = statusCode
         self.headers = headers
+
+        let _ = URL(string: "")!
     }
 }
