@@ -3,6 +3,7 @@ import Danger
 import DangerSwiftLint // package: https://github.com/ashfurrow/danger-swiftlint.git
 
 let danger = Danger()
+warn(comment: "Test inline comment", file: "Sources/Harvey/HarveyResponse.swift", line: "20")
 
 let allSourceFiles = danger.git.modifiedFiles + danger.git.createdFiles
 
