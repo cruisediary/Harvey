@@ -8,7 +8,8 @@ machine:
 dependencies:
   override:
   - brew install swiftlint
-  - npm install -g danger
+  - npm install -g git+https://github.com/sunshinejr/danger-js.git\#file_line_api
+  # - npm install -g danger
   # - brew install danger/tap/danger-swift
   - git clone https://github.com/sunshinejr/danger-swift.git
   - cd danger-swift && git checkout inline && make install  
