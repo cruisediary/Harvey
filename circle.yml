@@ -8,7 +8,10 @@ machine:
 dependencies:
   override:
   - brew install swiftlint
-  - npm install git+https://github.com/sunshinejr/danger-js.git\#file_line_api
+  - npm install -g typescript
+  - npm install -g ts-node
+  - yarn
+  - yarn add git+ssh://git@github.com/sunshinejr/danger-js.git\#file_line_api ts-node
   # - npm install -g danger
   # - brew install danger/tap/danger-swift
   - git clone https://github.com/sunshinejr/danger-swift.git
@@ -16,7 +19,7 @@ dependencies:
 
 test:
   override:
-  - swift build
-  - swift test
-  - pod lib lint
-  - danger process danger-swift
+  # - swift build
+  # - swift test
+  # - pod lib lint
+  - ts-node --ignore=false node_modules/danger/source/commands/danger-process.ts danger-swift

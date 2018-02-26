@@ -9,6 +9,7 @@ public final class HarveyResponse {
 
     // swiftlint:disable force_unwrapping
  
+ 
     internal lazy var httpUrlResponse: HTTPURLResponse = HTTPURLResponse(url: self.url, statusCode: self.statusCode, httpVersion: nil, headerFields: self.headers)!
     // swiftlint:enable force_unwrapping
 
