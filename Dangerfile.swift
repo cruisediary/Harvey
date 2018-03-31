@@ -1,15 +1,8 @@
 import Foundation
 import Danger
-import DangerSwiftLint // package: https://github.com/ashfurrow/danger-swiftlint.git
+import DangerSwiftLint // package: https://github.com/sunshinejr/danger-swiftlint.git
 
 let danger = Danger()
-// warn(message: "Bad empty line!", file: "Sources/Harvey/HarveyResponse.swift", line: 12)
-// message(message: "It happens, though...", file: "Sources/Harvey/HarveyResponse.swift", line: 12)
-// fail(message: "Jk, fix it bro", file: "Sources/Harvey/HarveyResponse.swift", line: 12)
-// message(message: "Message not in the inline scope", file: "Dangerfile.swift", line: 20)
-// warn(message: "🤦🏼‍♂️", file: "Sources/Harvey/HarveyResponse.swift", line: 20)
-// message("Message into main comment")
-message(message: "New message arrived!", file: "circle.yml", line: 15)
 
 let allSourceFiles = danger.git.modifiedFiles + danger.git.createdFiles
 
@@ -40,5 +33,5 @@ if onlyPodspec != onlyPackage {
 }
 
 // Workaround for SwiftLint bug https://github.com/ashfurrow/danger-swiftlint/issues/4
-SwiftLint.lint(directory: "Sources", configFile: ".swiftlint.yml")
-SwiftLint.lint(directory: "Tests", configFile: "Tests/HarveyTests/.swiftlint.yml")
+SwiftLint.lint(inline: true, directory: "Sources", configFile: ".swiftlint.yml")
+SwiftLint.lint(inline: true, directory: "Tests", configFile: "Tests/HarveyTests/.swiftlint.yml")
