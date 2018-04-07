@@ -2,10 +2,10 @@
 
 [![CircleCI](https://circleci.com/gh/Moya/Harvey/tree/master.svg?style=svg)](https://circleci.com/gh/Moya/Harvey/tree/master)
 
-Harvey is a network response stubbing library written completely in Swift. Main goals:
-- [ ] Stubbing based on given request properties (url/method etc.)
-- [ ] Removing stubs
-- [ ] Compatible with SPM
+Harvey is a SPM-first network response stubbing library written completely in Swift. Main goals:
+- [x] Stubbing based on given request properties (url/method etc.)
+- [x] Removing stubs
+- [x] Compatible with SPM
 - [ ] Compatible with Carthage
 - [ ] Record/save/use recorded stubs
 - [ ] Moya plugin to easily handle Harvey
