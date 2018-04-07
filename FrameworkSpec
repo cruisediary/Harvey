@@ -1,0 +1,40 @@
+language = swift("3.0")
+platforms = [
+    macos("10.10"),
+    ios("9.0"),
+    tvos("9.0"),
+    watchos("2.0")
+]
+
+harvey_tests = new_target do |target|
+  target.name = "HarveyTests"
+  target.platforms = platforms
+  target.language = language
+  target.info_plist = "Tests/Info.plist"
+  target.bundle_id = "com.moya.HarveyTests"
+  target.include_files = ["Tests/**/*.swift"]
+  target.exclude_files = []
+  target.resource_files = ["Tests/**/*.png"]
+  target.dependencies = ["Quick", "Nimble"]
+  target.type = :unit_test_bundle
+  target.enable_code_coverage = true
+end
+
+harvey = new_target do |target|
+  target.name = "Harvey"
+  target.platforms = platforms
+  target.language = language
+  target.info_plist = "Sources/Info.plist"
+  target.header = "Sources/Harvey.h"  
+  target.bundle_id = "com.moya.Harvey"
+  target.include_files = ["Sources/**/*.swift"]
+  target.exclude_files = []
+  target.is_safe_for_extensions = true
+  target.test_target = harvey_tests
+end
+
+project.name = "Harvey"
+project.targets = [
+  harvey,
+  harvey_tests
+]
