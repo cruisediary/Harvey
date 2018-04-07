@@ -4,6 +4,8 @@ import Nimble
 
 @testable import Harvey
 
+let lock = NSLock()
+
 final class HarveyStubConfiguration: QuickConfiguration {
     override static func configure(_ configuration: Configuration) {
         sharedExamples("successfully stubbed response") { (context: SharedExampleContext) in
@@ -12,6 +14,7 @@ final class HarveyStubConfiguration: QuickConfiguration {
             var dataSource: HarveyDataSourceProtocol!
 
             beforeEach {
+                lock.lock()
                 dataSource = HarveyTestsDataSource(shouldStub: { request -> Bool in
                     switch request.url?.absoluteString {
                     case stubbedResponse.url.absoluteString?: return true
@@ -28,6 +31,7 @@ final class HarveyStubConfiguration: QuickConfiguration {
 
             afterEach {
                 Harvey.remove(dataSource: dataSource)
+                lock.unlock()
             }
 
             it("should stub given response") {
@@ -39,10 +43,10 @@ final class HarveyStubConfiguration: QuickConfiguration {
                 }
                 downloadTask.resume()
 
-                expect(receivedData).toEventually(equal(stubbedResponse.data))
-                expect(response?.statusCode).toEventually(equal(stubbedResponse.statusCode))
-                expect(response?.allHeaderFields).toEventually(equal(stubbedResponse.httpUrlResponse.allHeaderFields))
-                expect(response?.url?.absoluteString).toEventually(equal(stubbedResponse.url.absoluteString))
+                expect(receivedData).toEventually(equal(stubbedResponse.data), timeout: 5.0)
+                expect(response?.statusCode).toEventually(equal(stubbedResponse.statusCode), timeout: 5.0)
+                expect(response?.allHeaderFields).toEventually(equal(stubbedResponse.httpUrlResponse.allHeaderFields), timeout: 5.0)
+                expect(response?.url?.absoluteString).toEventually(equal(stubbedResponse.url.absoluteString), timeout: 5.0)
             }
 
             it("shouldn't stub other responses") {
@@ -55,13 +59,13 @@ final class HarveyStubConfiguration: QuickConfiguration {
                 }
                 downloadTask.resume()
 
-                expect(receivedData).toEventuallyNot(equal(stubbedResponse.data))
-                expect(response?.statusCode).toEventuallyNot(equal(stubbedResponse.statusCode))
-                expect(response?.allHeaderFields).toEventuallyNot(equal(stubbedResponse.httpUrlResponse.allHeaderFields))
-                expect(response?.url?.absoluteString).toEventuallyNot(equal(stubbedResponse.url.absoluteString))
+                expect(receivedData).toEventuallyNot(equal(stubbedResponse.data), timeout: 5.0)
+                expect(response?.statusCode).toEventuallyNot(equal(stubbedResponse.statusCode), timeout: 5.0)
+                expect(response?.allHeaderFields).toEventuallyNot(equal(stubbedResponse.httpUrlResponse.allHeaderFields), timeout: 5.0)
+                expect(response?.url?.absoluteString).toEventuallyNot(equal(stubbedResponse.url.absoluteString), timeout: 5.0)
             }
 
-            it("shouldn't stub other responses after removing the dataSource") {
+            it("shouldn't stub responses after removing the dataSource") {
                 Harvey.remove(dataSource: dataSource)
 
                 var response: HTTPURLResponse?
@@ -72,9 +76,9 @@ final class HarveyStubConfiguration: QuickConfiguration {
                 }
                 downloadTask.resume()
 
-                expect(receivedData).toEventuallyNot(equal(stubbedResponse.data))
-                expect(response?.statusCode).toEventuallyNot(equal(stubbedResponse.statusCode))
-                expect(response?.allHeaderFields).toEventuallyNot(equal(stubbedResponse.httpUrlResponse.allHeaderFields))
+                expect(receivedData).toEventuallyNot(equal(stubbedResponse.data), timeout: 5.0)
+                expect(response?.statusCode).toEventuallyNot(equal(stubbedResponse.statusCode), timeout: 5.0)
+                expect(response?.allHeaderFields).toEventuallyNot(equal(stubbedResponse.httpUrlResponse.allHeaderFields), timeout: 5.0)
             }
         }
     }

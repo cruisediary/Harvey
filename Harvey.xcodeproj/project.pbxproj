@@ -11,7 +11,6 @@
 		17AE6D50C853B697F43DF307 /* HarveyURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D58D1979EED05E38B839832 /* HarveyURLProtocol.swift */; };
 		1B064A587EC1AA5158823E97 /* Predicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5F3C81F689272C13131B1 /* Predicates.swift */; };
 		1B8152CE24103245ED9B81B5 /* HarveyTestsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBC4DCA02E700F17A00C4E /* HarveyTestsDataSource.swift */; };
-		50F8A209E4E2462D5F559185 /* LinuxMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE819A6029A6E1D68E0E8A /* LinuxMain.swift */; };
 		77141BA5D1D9A92EEEFA3311 /* URLSessionConfiguration+Harvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D950A64C08376783B09F209 /* URLSessionConfiguration+Harvey.swift */; };
 		8A633397AA6163E0F89F12FB /* HarveyBasicDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E22F2E324DB03F755E0FE3D /* HarveyBasicDataSource.swift */; };
 		A80270A80283F44467510AA7 /* HarveyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8334E8F36970ABD29EDF61 /* HarveyTests.swift */; };
@@ -262,7 +261,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\ncase \"$PLATFORM_NAME\" in\n    macosx) plat=Mac;;\n    iphone*) plat=iOS;;\n    watch*) plat=watchOS;;\n    appletv*) plat=tvOS;;\n    *) echo \"error: Unknown PLATFORM_NAME: $PLATFORM_NAME\"; exit 1;;\nesac\n\nfor (( n = 0; n < SCRIPT_INPUT_FILE_COUNT; n++ )); do\n    VAR=SCRIPT_INPUT_FILE_$n\n    framework=$(basename \"${!VAR}\")\n    export SCRIPT_INPUT_FILE_$n=\"$SRCROOT\"/Carthage/Build/$plat/\"$framework\"\ndone\n\n/usr/local/bin/carthage copy-frameworks || exit\n\nfor (( n = 0; n < SCRIPT_INPUT_FILE_COUNT; n++ )); do\n    VAR=SCRIPT_INPUT_FILE_$n\n    source=${!VAR}.dSYM\n    dest=${BUILT_PRODUCTS_DIR}/$(basename \"$source\")\n    ditto \"$source\" \"$dest\" || exit\ndone";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -284,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50F8A209E4E2462D5F559185 /* LinuxMain.swift in Sources */,
 				A80270A80283F44467510AA7 /* HarveyTests.swift in Sources */,
 				1B8152CE24103245ED9B81B5 /* HarveyTestsDataSource.swift in Sources */,
 				1B064A587EC1AA5158823E97 /* Predicates.swift in Sources */,
@@ -368,10 +365,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = "$(SRCROOT)/Carthage/Build/tvOS/ $(inherited)";
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = "$(SRCROOT)/Carthage/Build/iOS/ $(inherited)";
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(SRCROOT)/Carthage/Build/Mac/ $(inherited)";
-				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = "$(SRCROOT)/Carthage/Build/watchOS/ $(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = (
+					"$(SRCROOT)/Carthage/Build/tvOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = (
+					"$(SRCROOT)/Carthage/Build/iOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(SRCROOT)/Carthage/Build/Mac/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = (
+					"$(SRCROOT)/Carthage/Build/watchOS/",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -391,10 +400,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = "$(SRCROOT)/Carthage/Build/tvOS/ $(inherited)";
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = "$(SRCROOT)/Carthage/Build/iOS/ $(inherited)";
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(SRCROOT)/Carthage/Build/Mac/ $(inherited)";
-				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = "$(SRCROOT)/Carthage/Build/watchOS/ $(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = (
+					"$(SRCROOT)/Carthage/Build/tvOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = (
+					"$(SRCROOT)/Carthage/Build/iOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(SRCROOT)/Carthage/Build/Mac/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = (
+					"$(SRCROOT)/Carthage/Build/watchOS/",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
