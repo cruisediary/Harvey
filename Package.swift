@@ -10,8 +10,8 @@ let package = Package(
             targets: ["Harvey"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick.git", .branch("master")),
-        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.0.2"))
+        .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "1.2.0")),
+        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.0.3"))
     ],
     targets: [
         .target(

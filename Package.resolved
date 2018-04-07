@@ -14,9 +14,9 @@
         "package": "Quick",
         "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {
-          "branch": "master",
-          "revision": "2a84abaedb07e1fb102b10fd17b5e3c52325ba46",
-          "version": null
+          "branch": null,
+          "revision": "0ff81f2c665b4381f526bd656f8708dd52a9ea2f",
+          "version": "1.2.0"
         }
       }
     ]
