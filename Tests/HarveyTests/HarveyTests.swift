@@ -12,12 +12,12 @@ final class HarveyStubConfiguration: QuickConfiguration {
             var dataSource: HarveyDataSourceProtocol!
 
             beforeEach {
-                dataSource = HarveyTestsDataSource(shouldStubClosure: { request -> Bool in
+                dataSource = HarveyTestsDataSource(shouldStub: { request -> Bool in
                     switch request.url?.absoluteString {
                     case stubbedResponse.url.absoluteString?: return true
                     default: return false
                     }
-                }, stubbedResponseClosure: { request -> HarveyResponse? in
+                }, stubbedResponse: { request -> HarveyResponse? in
                     switch request.url?.absoluteString {
                     case stubbedResponse.url.absoluteString?: return stubbedResponse
                     default: return nil

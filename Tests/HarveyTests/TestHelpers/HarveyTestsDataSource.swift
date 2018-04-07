@@ -4,19 +4,19 @@ import Foundation
 
 final class HarveyTestsDataSource: HarveyDataSourceProtocol {
 
-    let shouldStubClosure: (URLRequest) -> Bool
-    let stubbedResponseClosure: (URLRequest) -> HarveyResponse?
+    let shouldStub: (URLRequest) -> Bool
+    let stubbedResponse: (URLRequest) -> HarveyResponse?
 
-    init(shouldStubClosure: @escaping (URLRequest) -> Bool, stubbedResponseClosure: @escaping (URLRequest) -> HarveyResponse?) {
-        self.shouldStubClosure = shouldStubClosure
-        self.stubbedResponseClosure = stubbedResponseClosure
+    init(shouldStub: @escaping (URLRequest) -> Bool, stubbedResponse: @escaping (URLRequest) -> HarveyResponse?) {
+        self.shouldStub = shouldStub
+        self.stubbedResponse = stubbedResponse
     }
 
     func shouldStub(request: URLRequest) -> Bool {
-        return shouldStubClosure(request)
+        return shouldStub(request)
     }
 
     func stubbedResponse(for request: URLRequest) -> HarveyResponse? {
-        return stubbedResponseClosure(request)
+        return stubbedResponse(request)
     }
 }
