@@ -26,7 +26,7 @@ public final class Harvey {
     }
 
     public static func dataSource(for request: URLRequest) -> HarveyDataSourceProtocol? {
-        let dataSources = self.dataSources.filter { $0.shouldStub(for: request) }
+        let dataSources = self.dataSources.filter { $0.shouldStub(request: request) }
         let dataSourcesCount = dataSources.count
 
         guard dataSourcesCount <= 1 else {

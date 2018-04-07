@@ -12,7 +12,7 @@ final class HarveyTestsDataSource: HarveyDataSourceProtocol {
         self.stubbedResponseClosure = stubbedResponseClosure
     }
 
-    func shouldStub(for request: URLRequest) -> Bool {
+    func shouldStub(request: URLRequest) -> Bool {
         return shouldStubClosure(request)
     }
 
