@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81DDECDF4701DAACC0AAB367"
+               BlueprintIdentifier = "33085208F5C55AAD2B80D274"
                BlueprintName = "HarveyTests"
                ReferencedContainer = "container:Harvey.xcodeproj"
                BuildableName = "HarveyTests.xctest">
@@ -35,7 +35,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81DDECDF4701DAACC0AAB367"
+               BlueprintIdentifier = "33085208F5C55AAD2B80D274"
                BlueprintName = "HarveyTests"
                ReferencedContainer = "container:Harvey.xcodeproj"
                BuildableName = "HarveyTests.xctest">
