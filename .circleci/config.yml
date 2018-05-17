@@ -1,0 +1,35 @@
+
+version: 2.0
+jobs:
+  build:
+    macos:
+      xcode: '9.3.0'
+    shell: /bin/bash --login -o pipefail
+    environment:
+      LANG: en_US.UTF-8
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - checkout
+      - run:
+          name: update homebrew
+          command: brew update
+      - run:
+          name: swiftlint
+          command: brew install swiftlint
+      - run:
+          name: danger
+          command: |
+              npm install -g danger
+              brew install danger/tap/danger-swift
+      - run:
+          name: build
+          command: swift build
+      - run:
+          name: test
+          command: swift test
+      - run:
+          name: pod lint
+          command: pod lib lint
+      - run:
+          name: danger swift
+          command: danger process danger-swift
