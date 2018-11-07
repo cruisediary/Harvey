@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Harvey"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "Harvey is a delightful network stubbing library in Swift."
   s.description  = <<-DESC
   Harvey is a delightful network stubbing library in Swift. It's still a work in progress.
